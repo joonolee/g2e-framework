@@ -1,0 +1,45 @@
+{
+	"groups": [
+		{
+			"name": "g2e-framework"
+		}
+	],
+	"properties": [
+		{
+			"name": "fileupload.repository",
+			"type": "java.lang.String",
+			"description": "Apache common fileupload file temp directory"
+		},
+		{
+			"name": "fileupload.size_threshold",
+			"type": "java.lang.Integer",
+			"description": "Apache common fileupload file threshold size"
+		},
+		{
+			"name": "fileupload.size_max",
+			"type": "java.lang.Long",
+			"description": "Apache common fileupload file max size"
+		},
+		{
+			"name": "fileupload.datafolder",
+			"type": "java.lang.String",
+			"description": "Application file upload directory"
+		},
+		{
+			"name": "postcode.apikey",
+			"type": "java.lang.String",
+			"description": "juso.go.kr api key"
+		},
+		{
+			"name": "memcached.servers",
+			"type": "java.lang.String",
+			"description": "Memcached server:port list: ex) 127.0.0.1:11211 127.0.0.1:11212"
+		},
+		{
+			"name": "redis.servers",
+			"type": "java.lang.String",
+			"description": "Redis server:port list: ex) 127.0.0.1:6379 127.0.0.1:6380"
+		}
+	],
+	"hints": []
+}
