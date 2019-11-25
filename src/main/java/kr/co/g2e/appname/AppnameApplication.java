@@ -10,7 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -27,9 +29,17 @@ import kr.co.g2e.utils.util.Params;
 
 @SpringBootApplication
 @MapperScan("kr.co.g2e.appname")
-public class AppnameApplication implements WebMvcConfigurer {
+public class AppnameApplication extends SpringBootServletInitializer implements WebMvcConfigurer {
 	public static void main(String[] args) {
 		SpringApplication.run(AppnameApplication.class, args);
+	}
+
+	/**
+	 * war로 패키징 하기 위해 필요한 구성(서블릿 초기화)
+	 */
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(AppnameApplication.class);
 	}
 
 	/**
