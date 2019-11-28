@@ -59,7 +59,7 @@ public class AppnameApplication extends SpringBootServletInitializer implements 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new LoginCheckInterceptor()).addPathPatterns("/**/*.do"); // 로그인체크
-		registry.addInterceptor(new AuthCheckInterceptor()).addPathPatterns("/**/*.do"); // 권한체크
+		registry.addInterceptor(new PermCheckInterceptor()).addPathPatterns("/**/*.do"); // 권한체크
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class AppnameApplication extends SpringBootServletInitializer implements 
 	/**
 	 * 권한 체크 인터셉터 정의
 	 */
-	public static class AuthCheckInterceptor implements HandlerInterceptor {
+	public static class PermCheckInterceptor implements HandlerInterceptor {
 		private Logger logger = LoggerFactory.getLogger(getClass());
 
 		@Override
