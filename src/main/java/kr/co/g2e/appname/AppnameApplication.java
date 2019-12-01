@@ -21,7 +21,6 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import kr.co.g2e.utils.filter.RequestLoggingFilter;
@@ -59,7 +58,6 @@ public class AppnameApplication extends SpringBootServletInitializer implements 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new LoginCheckInterceptor()).addPathPatterns("/**/*.do"); // 로그인체크
-		registry.addInterceptor(new PermCheckInterceptor()).addPathPatterns("/**/*.do"); // 권한체크
 	}
 
 	/**
@@ -71,14 +69,6 @@ public class AppnameApplication extends SpringBootServletInitializer implements 
 	}
 
 	/**
-	 * 뷰 리졸버 설정
-	 */
-	@Override
-	public void configureViewResolvers(ViewResolverRegistry registry) {
-		registry.jsp("/", ".jsp");
-	}
-
-	/**
 	 * 로그인 체크 인터셉터 정의
 	 */
 	public static class LoginCheckInterceptor implements HandlerInterceptor {
@@ -87,19 +77,6 @@ public class AppnameApplication extends SpringBootServletInitializer implements 
 		@Override
 		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 			logger.debug("===================== 로그인 체크 성공");
-			return true; // true 이면 계속 진행, false 이면 다음 호출 중단
-		}
-	}
-
-	/**
-	 * 권한 체크 인터셉터 정의
-	 */
-	public static class PermCheckInterceptor implements HandlerInterceptor {
-		private Logger logger = LoggerFactory.getLogger(getClass());
-
-		@Override
-		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-			logger.debug("===================== 권한 체크 성공");
 			return true; // true 이면 계속 진행, false 이면 다음 호출 중단
 		}
 	}
