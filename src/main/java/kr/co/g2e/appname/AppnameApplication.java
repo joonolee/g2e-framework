@@ -36,8 +36,8 @@ public class AppnameApplication extends SpringBootServletInitializer implements 
 	 * 스프링부트 메인
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(AppnameApplication.class, args);
 		Cache.init(); // 캐시 초기화
+		SpringApplication.run(AppnameApplication.class, args);
 	}
 
 	/**
