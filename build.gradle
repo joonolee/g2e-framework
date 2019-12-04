@@ -30,6 +30,7 @@ repositories {
 
 dependencies {
 	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	compileOnly fileTree(dir: 'src/main/webapp/WEB-INF/lib', include: ['*.jar'])
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
@@ -42,7 +43,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	providedRuntime 'javax.servlet:jstl'
+	implementation 'javax.servlet:jstl'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
