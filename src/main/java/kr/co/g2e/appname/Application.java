@@ -31,13 +31,13 @@ import kr.co.g2e.utils.util.Params;
 
 @SpringBootApplication
 @MapperScan(basePackages = "kr.co.g2e.appname", annotationClass = Mapper.class)
-public class AppnameApplication extends SpringBootServletInitializer implements WebMvcConfigurer {
+public class Application extends SpringBootServletInitializer implements WebMvcConfigurer {
 	/**
 	 * 스프링부트 메인
 	 */
 	public static void main(String[] args) {
 		Cache.init(); // 캐시 초기화
-		SpringApplication.run(AppnameApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class AppnameApplication extends SpringBootServletInitializer implements 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		Cache.init(); // 캐시 초기화
-		return application.sources(AppnameApplication.class);
+		return application.sources(Application.class);
 	}
 
 	/**
